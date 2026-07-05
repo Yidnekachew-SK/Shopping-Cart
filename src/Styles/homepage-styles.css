@@ -3,7 +3,7 @@
 	box-sizing: border-box;
 }
 
-body, .homepage {
+body {
 	min-height: 100vh;
 	width: 98vw;
 	margin: 0;
@@ -18,6 +18,10 @@ nav {
 	position: fixed;
 }
 
+.mainSection {
+	margin-top: 80px;
+}
+
 .shopName {
 	padding: 5px 10px;
 	margin: 10px 0;
@@ -27,7 +31,7 @@ nav {
 .navigationLinks {
 	padding: 5px 10px;
 	display: grid;
-	grid-template-columns: 0.7fr 0.7fr 0.9fr;
+	grid-template-columns: 0.7fr 0.7fr 0.3fr;
 	align-items: center;
 }
 
@@ -35,8 +39,7 @@ nav {
 	padding: 5px 10px;
 }
 
-.mainSection {
-	margin-top: 80px;
+.homePage {
 	padding: 5px 10px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
