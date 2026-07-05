@@ -1,0 +1,24 @@
+
+
+async function Fetch (setCard) {
+	try {
+		const response = await fetch('https://fakestoreapi.com/products');
+		const data = await response.json();
+
+		const cards = data.map((card) => ({
+		    title: card.title,
+		    price: card.price,
+		    description: card.description,
+		    category: card.category,
+		    image: card.image,
+		    id: card.id,
+		}));
+
+		setCard(cards);
+
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+export default Fetch
