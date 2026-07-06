@@ -1,0 +1,84 @@
+* {
+	border: 1px solid red;
+	box-sizing: border-box;
+}
+
+
+h2 {
+	text-align: center;
+}
+
+.cartSection {
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cartItemsContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.itemCard {
+	border: 1px solid;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.cardSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 600px;
+}
+
+.itemInfoDisplay {
+	display: grid;
+	grid-template-columns: 0.4fr 1fr;
+	align-items: center;
+	justify-items: center;
+	gap: 10px;
+}
+
+.itemInfoDisplay img {
+	width: 150px;
+}
+
+.priceDisplay {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.priceDisplay p {
+	padding: 5px 10px;
+	margin: 0;
+}
+
+.OrderSummaryContainer {
+	width: 500px;
+	align-self: flex-start;
+}
+
+h3 {
+	text-align: center;
+}
+
+.orderPriceDisplay {
+	padding: 10px 15px;
+}
+
+.prices {
+	float: right;
+}
+
+.checkoutButton {
+	padding: 10px 15px;
+	font-size: 20px;
+	border: 1px solid;
+	border-radius: 6px;
+}

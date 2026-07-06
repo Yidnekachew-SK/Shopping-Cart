@@ -1,23 +1,26 @@
 import '../Styles/shop-page-styles.css';
 import {useState, useEffect} from 'react';
+import { useOutletContext } from "react-router";
 import {Plus, Minus} from 'lucide-react';
+import {HandleIncrement, HandleDecrement} from './utils.jsx';
 
-function ShopPage ({cards, setCards, originalCards}) {
-	const [filterType, setFilterType] = useState('all');
+function ShopPage () {
+	const [shoppingCards, setShoppingCards, allcards, cartItems, setCartItems] = useOutletContext();
+	const [cartId, setCartId] = useState([]);
 
 	return (
 		<>
-		<FilteringOptions setFilter={setFilterType} setCards={setCards} oldCards={originalCards} />
+		<FilteringOptions setCards={setShoppingCards} oldCards={allcards} />
 		<div className="itemCardContainer">
-			{cards.map((card) => (
+			{shoppingCards.map((card) => (
 				<ItemCards key={card.id} id={card.id} image={card.image} name={card.title} 
-					price={card.price} count={card.count} setCardCount={setCards} />
+					price={card.price} count={card.count} setCardCount={setShoppingCards} setCart={setCartItems}
+					cartId={cartId} setCartId={setCartId} allItems={allcards} />
 			))}
 		</div>
 		</>
 	)
 }
-
 
 
 function FilteringOptions ({setFilter, setCards, oldCards}) {
@@ -51,18 +54,20 @@ function FilteringOptions ({setFilter, setCards, oldCards}) {
 	)
 }
 
-function ItemCards ({id, image, name, price, count, setCardCount}) {
-	const HandleIncrement = (itemId) => {
-		setCardCount(prev => (
-			prev.map((card) => (card.id === itemId ? {...card, count: card.count + 1} : card))
-		))
-	}
 
-	const HandleDecrement = (itemId) => {
-		setCardCount(prev => (
-			prev.map((card) => (card.id === itemId ? 
-				{...card, count: card.count > 1 ? card.count - 1 : 1} : card))
-		))
+function ItemCards ({id, image, name, price, count, setCardCount, setCart, cartId, setCartId, allItems}) {
+	
+
+	const HandleAddCart = (itemId) => {
+		setCartId(prevId => {
+			if(prevId.includes(itemId)) {
+				return prevId
+			} else {
+				const cartItemsId = [...prevId, itemId];
+				setCart(allItems.filter(item => (cartItemsId.includes(item.id))));
+				return cartItemsId;
+			}
+		})
 	}
 
 	return (
@@ -74,14 +79,14 @@ function ItemCards ({id, image, name, price, count, setCardCount}) {
 				<div className="buttonContainer"> 
 					<div className="itemCountContainer">
 						<Minus 
-							onClick={() => HandleDecrement(id)}
+							onClick={() => HandleDecrement(id, setCardCount)}
 						/>
 						<p className="itemCount">{count}</p>
 						<Plus 
-							onClick={() => HandleIncrement(id)}
+							onClick={() => HandleIncrement(id, setCardCount)}
 						/>
 					</div>
-					<button className="addCartButton">Add to Cart</button>
+					<button className="addCartButton" onClick={() => HandleAddCart(id)}>Add to Cart</button>
 				</div>
 				
 			</div>

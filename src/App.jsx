@@ -1,12 +1,27 @@
-import { useState } from 'react'
-import './App.css'
-import Controller from './Components/controller.jsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
-function App() {
-  
-  return (
-    <Controller />
-  )
-}
+import Controller from "./Components/controller";
+import HomePage from "./Components/homePage";
+import ShopPage from "./Components/shopPage";
+import CartPage from "./Components/cartPage";
 
-export default App
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Controller />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/shop", element: <ShopPage /> },
+      { path: "/cart", element: <CartPage /> },
+    ],
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
+);
+
