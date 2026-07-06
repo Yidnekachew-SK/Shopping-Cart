@@ -9,6 +9,7 @@ async function FetchShopItems (setCard, setAllCards) {
 		    category: card.category,
 		    image: card.image,
 		    id: card.id,
+		    count: 1
 		}));
 
 
