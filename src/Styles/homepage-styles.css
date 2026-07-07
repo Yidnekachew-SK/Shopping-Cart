@@ -20,6 +20,7 @@ nav {
 
 .mainSection {
 	margin-top: 80px;
+	min-height: 90vh;
 }
 
 .shopName {
@@ -37,10 +38,11 @@ nav {
 
 .links {
 	padding: 5px 10px;
+	text-decoration: none;
 }
 
 .homePage {
-	padding: 5px 10px;
+	padding: 10px 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 40px;
@@ -58,15 +60,26 @@ nav {
 	width: 100%;
 }
 
+.message, .description {
+	width: inherit;
+	padding: 10px;
+}
+
+.message {
+	font-size: 30px;
+	text-align: center;
+}
+
+.description {
+	font-size: 20px;
+}
+
 .shopButton {
 	padding: 5px 10px;
 	border: 1px solid;
 	border-radius: 7px;
 	margin: 5px 8px;
-}
-
-.message, .description {
-	width: inherit;
+	font-size: 20px;
 }
 
 .shopImage {

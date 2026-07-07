@@ -4,7 +4,7 @@ async function FetchShopItems (setCard, setAllCards) {
 		const data = await response.json();
 		const cards = data.map((card) => ({
 		    title: card.title,
-		    price: `$${card.price}`,
+		    price: card.price,
 		    description: card.description,
 		    category: card.category,
 		    image: card.image,

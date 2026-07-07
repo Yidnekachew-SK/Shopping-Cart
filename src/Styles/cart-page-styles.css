@@ -11,6 +11,7 @@ h2 {
 .cartSection {
 	padding: 10px 20px;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 }
@@ -61,7 +62,16 @@ h2 {
 
 .OrderSummaryContainer {
 	width: 500px;
+	min-height: 400px;
+	padding: 10px;
 	align-self: flex-start;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.orderSummaryInfo{
+	margin: 20px 0;
 }
 
 h3 {
@@ -81,4 +91,5 @@ h3 {
 	font-size: 20px;
 	border: 1px solid;
 	border-radius: 6px;
+	align-self: center;
 }

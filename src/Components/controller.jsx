@@ -21,7 +21,7 @@ function Controller () {
 	return (
 		<>
 		<nav>
-			<h2 className="shopName">shop name</h2>
+			<h2 className="shopName">NovaMart</h2>
 			<div className="navigationLinks">
 				<Link to="/" className="links">Home</Link>
           		<Link to="/shop" className="links">Shop</Link>
@@ -31,7 +31,7 @@ function Controller () {
 			</div>
 		</nav>
 		<div className="mainSection"> 
-			<Outlet context={[shoppingCards, setShoppingCards, allcards, cartItems, setCartItems]} />
+			<Outlet context={[shoppingCards, setShoppingCards, allcards, setAllCards, cartItems, setCartItems]} />
 		</div>
 		
 		<footer>
