@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Controller from "./Components/controller.jsx";
-import HomePage from "./Components/homePage.jsx";
+import HomePage from "./Components/homepage.jsx";
 import ShopPage from "./Components/shopPage.jsx";
 import CartPage from "./Components/cartPage.jsx";
 
