@@ -18,6 +18,24 @@ function Controller () {
 		FetchShopItems(setShoppingCards, setAllCards);  
 	}, [])
 
+	const cartItemCount = () => {
+		const countDisplayer = document.querySelector('.cartCount');
+		if (!countDisplayer) return;
+		let count = 0;
+
+		if (cartItems.length > 0) {
+			countDisplayer.style.visibility = 'visible';
+		}  else {
+    		countDisplayer.style.visibility = 'hidden';
+  		}
+
+		for(let i=0; i < cartItems.length; i++) {
+			count++;
+		}
+
+		countDisplayer.textContent = count;
+	}
+
 	return (
 		<>
 		<nav>
@@ -25,8 +43,9 @@ function Controller () {
 			<div className="navigationLinks">
 				<Link to="/" className="links">Home</Link>
           		<Link to="/shop" className="links">Shop</Link>
-          		<Link to="/cart" className="links">
+          		<Link to="/cart" className="links cart">
 					<ShoppingBag size={30} data-testid="cartIcon"/>
+					<p className="cartCount">{cartItemCount()}</p>
 				</Link>
 			</div>
 		</nav>
