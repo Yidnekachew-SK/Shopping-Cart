@@ -50,16 +50,21 @@ function CartItem ({id, image, title, description, price, count, setCardCount, s
 					<div className="itemCountContainer">
 						<Minus 
 							onClick={() => HandleDecrement(id, setCardCount, setAllCards)}
+							data-testid="cart-decreaseCount"
 						/>
 						<p className="itemCount">{count}</p>
 						<Plus 
 							onClick={() => HandleIncrement(id, setCardCount, setAllCards)}
+							data-testid="cart-increaseCount"
 						/>
 					</div>
 				</div>
 			</div>
 			<X 
-				onClick={() => HandleCartDelete(id)} />
+				onClick={() => HandleCartDelete(id)} 
+				data-testid="deleteIcon"
+			/>
+
 		</div>
 	)
 }
@@ -80,10 +85,10 @@ function PriceDetailDisplayer ({cartItems, price, setPrice}) {
 		<div className="orderSummaryInfo">
 			<h3>Order summary</h3>
 			<div className="orderPriceDisplay">
-				<p><span>Subtotal: </span> <span className="prices">{price.subtotal}</span> </p>
-				<p><span>Shipping fee: </span> <span className="prices">0</span> </p>
-				<p><span>VAT: </span> <span className="prices">{price.VAT}</span> </p>
-				<p><span>Total Price: </span> <span className="prices">{TotalPrice(price)}</span> </p>
+				<p><span>Subtotal: </span><span className="prices">{price.subtotal}</span> </p>
+				<p><span>Shipping fee: </span><span className="prices">0</span> </p>
+				<p><span>VAT: </span><span className="prices">{price.VAT}</span> </p>
+				<p><span>Total Price: </span><span className="prices">{TotalPrice(price)}</span> </p>
 			</div>
 		</div>
 		<button className="checkoutButton">CheckOut</button>

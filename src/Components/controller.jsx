@@ -26,7 +26,7 @@ function Controller () {
 				<Link to="/" className="links">Home</Link>
           		<Link to="/shop" className="links">Shop</Link>
           		<Link to="/cart" className="links">
-					<ShoppingBag size={30}/>
+					<ShoppingBag size={30} data-testid="cartIcon"/>
 				</Link>
 			</div>
 		</nav>

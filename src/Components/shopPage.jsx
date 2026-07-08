@@ -23,22 +23,17 @@ function ShopPage () {
 }
 
 
-function FilteringOptions ({setFilter, setCards, oldCards}) {
+function FilteringOptions ({setCards, oldCards}) {
 	const HandleOptionClick = (type) => {
 		if (type === 'all') {
-			setFilter('all');
 			setCards(oldCards);
 		} else if (type === 'men') {
-			setFilter('men');
 			setCards(oldCards.filter(card => card.category === 'men\'s clothing'))
 		} else if (type === 'women') {
-			setFilter('women');
 			setCards(oldCards.filter(card => card.category === `women's clothing`))
 		} else if (type === 'jewel') {
-			setFilter('jewel');
 			setCards(oldCards.filter(card => card.category === 'jewelery'))
 		} else if (type === 'electronic') {
-			setFilter('electronic');
 			setCards(oldCards.filter(card => card.category === `electronics`))
 		}
 	}
@@ -85,10 +80,12 @@ function ItemCards ({id, image, name, price, count, setCardCount, setItemsCount,
 					<div className="itemCountContainer">
 						<Minus 
 							onClick={() => HandleDecrement(id, setCardCount, setItemsCount)}
+							data-testid="decreaseCount"
 						/>
 						<p className="itemCount">{count}</p>
 						<Plus 
 							onClick={() => HandleIncrement(id, setCardCount, setItemsCount)}
+							data-testid="increaseCount"
 						/>
 					</div>
 					<button className="addCartButton" onClick={() => HandleAddCart(id)}>Add to Cart</button>
